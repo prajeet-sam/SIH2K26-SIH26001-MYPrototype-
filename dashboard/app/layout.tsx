@@ -1,13 +1,10 @@
-import type { Metadata } from 'next'
+'use client'
+
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Sidebar from './components/Sidebar'
 
 const inter = Inter({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: 'Landslide Risk Monitoring Dashboard',
-  description: 'Real-time landslide risk assessment and monitoring system for Northeast India',
-}
 
 export default function RootLayout({
   children,
@@ -17,7 +14,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
+        <div className="flex min-h-screen">
+          <Sidebar />
+          <main className="flex-1 ml-64">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   )
